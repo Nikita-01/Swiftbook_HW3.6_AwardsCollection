@@ -29,13 +29,16 @@ struct TestPicture: View {
                 path.addLine(to: CGPoint(x: size * 0.9, y: size * 3 / 8))
                 path.closeSubpath()
             }
-            .foregroundColor(.yellow)
-            .shadow(color: .blue, radius: 5)
+            .fill(
+                LinearGradient(colors: [.black, .yellow], startPoint: UnitPoint(x: 0, y: 0), endPoint: UnitPoint(x: 1, y: 1))
+            )
+            .shadow(color: .black, radius: 5)
             VStack {
                 Spacer()
                 HStack {
                     Spacer()
                     Text("Final Award!!!")
+                        .foregroundColor(.white)
                     Spacer()
                 }
                 Spacer()
