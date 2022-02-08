@@ -24,9 +24,13 @@ struct MainView: View {
             
             Spacer()
             if showAward {
-                GradientRectangles()
+                TestPicture()
                     .frame(width: 250, height: 250)
-                    .transition(.leadingSlide)
+                    .transition(.topSlide)
+                    .animation(.spring(
+                        response: 0.3,
+                        dampingFraction: 0.2,
+                        blendDuration: 0))
             }
             Spacer()
         }
@@ -42,8 +46,8 @@ struct MainView: View {
 }
 
 extension AnyTransition {
-    static var leadingSlide: AnyTransition {
-        let insertion = AnyTransition.move(edge: .leading)
+    static var topSlide: AnyTransition {
+        let insertion = AnyTransition.move(edge: .top)
             .combined(with: .scale)
         let removal = AnyTransition.scale
             .combined(with: .opacity)
